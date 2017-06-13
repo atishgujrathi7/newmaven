@@ -98,15 +98,20 @@
 	                    <p>
 	                    
 	                    <% 
-            Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/lms", "root", "root");
+	                    
+	                    String url=System.getenv("url");
+	        			String port=System.getenv("port");
+	        			String schema=System.getenv("schema");
+	        			String username=System.getenv("username");
+	        			String password=System.getenv("password");
+	        			Connection connection = DriverManager.getConnection("jdbc:mysql://"+url+":"+port+"/"+schema,username,password);
 
             Statement statement = connection.createStatement();
 
             //String id = request.getParameter("id");  
 
             ResultSet resultset = 
-                statement.executeQuery("select * from lms.request") ;
+                statement.executeQuery("select * from sampledb.request") ;
 		        %>
 	  <form action="deal.html" autocomplete="on">
 	     <TABLE BORDER="2">

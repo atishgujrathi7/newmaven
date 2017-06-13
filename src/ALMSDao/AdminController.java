@@ -51,11 +51,17 @@ PrintWriter out = response.getWriter();
 		try 
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root","root");
+			String url=System.getenv("url");
+			String port=System.getenv("port");
+			String schema=System.getenv("schema");
+			String username=System.getenv("username");
+			String password=System.getenv("password");
+			//System.out.println("jdbc:mysql://"+url+":"+port+"/"+schema,"+username+","+password+");
+			Connection con = DriverManager.getConnection("jdbc:mysql://"+url+":"+port+"/"+schema,username,password);
 			
 			Statement stmt = con.createStatement();
 			
-			ResultSet rs = stmt.executeQuery("select * from lms.admin where username='"+adminname+"' and password='"+adminpass+"'");
+			ResultSet rs = stmt.executeQuery("select * from sampledb.admin where username='"+adminname+"' and password='"+adminpass+"'");
 			
 			if(rs.next())
 			{
