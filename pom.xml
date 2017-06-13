@@ -46,6 +46,12 @@
       <version>3.1.0.RELEASE</version>
       <scope>compile</scope>
     </dependency>
+	<dependency>
+  <groupId>org.wildfly.plugins</groupId>
+  <artifactId>wildfly-maven-plugin</artifactId>
+  <version>1.2.0.Alpha5</version>
+  <type>maven-plugin</type>
+</dependency>
 </dependencies>
   <build>
     <resources>
@@ -89,7 +95,7 @@
          <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->    
          <id>openshift</id>     
          <build>
-         <finalName>SunriseBasket</finalName>  
+         <finalName>almsd</finalName>  
          <plugins>      
          <plugin>       
          <groupId>org.apache.maven.plugins</groupId>    
